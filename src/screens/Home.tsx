@@ -16,6 +16,8 @@ export function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [statusSelected, setStatusSelected] = useState<'open' | 'closed'>('open')
   const [orders, setOrders] = useState<OrderProps[]>([])
+  const { colors } = useTheme();
+  const navigation = useNavigation();
 
   useEffect(() => {
     setIsLoading(true);
@@ -38,11 +40,7 @@ export function Home() {
     })
     setIsLoading(false)
     return subscriber
-  }, [statusSelected])
-  
-
-  const { colors } = useTheme();
-  const navigation = useNavigation();
+  }, [statusSelected]) 
 
   function handleNewOrder() {
     navigation.navigate('new')
@@ -83,7 +81,7 @@ export function Home() {
         <HStack w="full" mt={8} mb={4} justifyContent="space-between" alignItems="center">
           <Heading color="gray.100">Meus chamados</Heading>
           <Text color="gray.200">
-              5
+              {orders.length}
           </Text>
         </HStack>
       
