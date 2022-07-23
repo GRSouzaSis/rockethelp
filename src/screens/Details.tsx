@@ -3,13 +3,12 @@ import { Alert, Keyboard } from 'react-native';
 import { Box, HStack, ScrollView, Text, useTheme, VStack } from 'native-base';
 import firestore from '@react-native-firebase/firestore';
 import { useNavigation, useRoute } from '@react-navigation/native';
-
+import { CircleWavyCheck, Hourglass, DesktopTower, ClipboardText } from 'phosphor-react-native';
 import { dateFormat } from '../utils/dateFormat';
 import { Header } from '../components/Header';
-import { Order, OrderProps } from '../components/Order';
+import { OrderProps } from '../components/Order';
 import { OrderFirestoreDTO } from '../DTOs/OrderDTO';
 import { Loading } from '../components/Loading';
-import { CircleWavyCheck, Hourglass, DesktopTower, Clipboard } from 'phosphor-react-native';
 import { CardDetails } from '../components/CardDetails';
 import { Input } from '../components/Input';
 import { Button } from '../components/Button';
@@ -117,14 +116,14 @@ export function Details() {
           <CardDetails 
             title='equipamento'
             description={`Patrimônio ${order.patrimony}`}
-            icon={DesktopTower}
-            footer={order.when}
+            icon={DesktopTower}            
           />
 
           <CardDetails 
             title='descrição do problema'
             description={`Patrimônio ${order.description}`}
-            icon={Clipboard}            
+            icon={ClipboardText}   
+            footer={`Registrado em ${order.when}`}         
           />
 
           <CardDetails 
